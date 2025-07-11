@@ -1,10 +1,12 @@
-package com.Project.TaskManager.Product;
+package com.Project.TaskManager.DTO;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
+
 
 @Entity
 @Table(name="TO-DOO APPLICATION")
@@ -31,6 +33,14 @@ public class TaskDetails {
         TaskId = taskId;
     }
 
+    public @NotBlank(message = "TaskName should not be blank") String getName() {
+        return name;
+    }
+
+    public void setName(@NotBlank(message = "TaskName should not be blank") String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return Description;
     }
@@ -39,11 +49,11 @@ public class TaskDetails {
         Description = description;
     }
 
-    public LocalDate getDueDate() {
+    public @Future LocalDate getDueDate() {
         return DueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(@Future LocalDate dueDate) {
         DueDate = dueDate;
     }
 
@@ -55,29 +65,19 @@ public class TaskDetails {
         TaskStatus = taskStatus;
     }
 
-    public String getPriority() {
-        return Priority;
-    }
-
-
-    public void setPriority(String priority) {
-        Priority = priority;
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-
-    }
     public @Email String getEmail() {
         return email;
     }
 
     public void setEmail(@Email String email) {
         this.email = email;
+    }
+
+    public String getPriority() {
+        return Priority;
+    }
+
+    public void setPriority(String priority) {
+        Priority = priority;
     }
 }
