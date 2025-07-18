@@ -1,6 +1,6 @@
 package com.Project.TaskManager.Controller;
 
-import com.Project.TaskManager.DTO.TaskDetails;
+import com.Project.TaskManager.Entity.TaskDetails;
 import com.Project.TaskManager.Service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,11 @@
 package com.Project.TaskManager.Service;
 
+import com.Project.TaskManager.Entity.users;
 import com.Project.TaskManager.Exceptions.BadRequestException;
 import com.Project.TaskManager.Exceptions.ResourceNotFoundException;
-import com.Project.TaskManager.DTO.TaskDetails;
+import com.Project.TaskManager.Entity.TaskDetails;
 import com.Project.TaskManager.Repo.TaskRepo;
+import com.Project.TaskManager.Repo.usersrepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
