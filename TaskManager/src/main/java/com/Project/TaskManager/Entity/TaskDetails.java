@@ -2,7 +2,6 @@ package com.Project.TaskManager.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.time.LocalDate;
@@ -24,7 +23,6 @@ public class TaskDetails {
     private String Priority;
     @ManyToOne
     @JoinColumn(name="userid")
-    @Autowired
     private users user;
 
     public int getTaskId() {

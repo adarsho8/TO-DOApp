@@ -1,5 +1,6 @@
 package com.Project.TaskManager.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
@@ -14,6 +15,7 @@ public class users {
     @Email
     private String email;
     @OneToMany(mappedBy ="user",cascade =CascadeType.ALL)
+    @JsonIgnore
     private List<TaskDetails> tasks;
 
     public int getUserid() {
