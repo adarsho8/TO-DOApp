@@ -2,6 +2,7 @@ package com.Project.TaskManager.Service;
 
 import com.Project.TaskManager.Entity.users;
 import com.Project.TaskManager.Repo.usersrepo;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,10 @@ public class userService {
     public void deleteusertaskdetails(int userid)
     {
         userrepo.deleteById(userid);
+    }
+    public users updateuserdetails(users user)
+    {
+        return userrepo.save(user);
     }
 
 }

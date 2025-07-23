@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="TaskDetails")
+
 public class TaskDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

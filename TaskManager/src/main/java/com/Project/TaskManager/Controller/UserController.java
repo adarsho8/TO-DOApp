@@ -2,6 +2,7 @@ package com.Project.TaskManager.Controller;
 
 import com.Project.TaskManager.Entity.users;
 import com.Project.TaskManager.Service.userService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ public class UserController {
     @Autowired
     private userService userservice;
     @PostMapping
-    public users saveusers(@RequestBody users user)
+    public users saveusers( @Valid @RequestBody users user)
     {
         return userservice.saveusers(user);
     }
@@ -28,5 +29,11 @@ public class UserController {
         userservice.deleteusertaskdetails(userid);
         return "deleted sucessfully";
 
+    }
+    @PutMapping
+    public String updateuserdetails(@Valid @RequestBody users user)
+    {
+        userservice.updateuserdetails(user);
+        return "user"+user.getUsername()+ "updated sucessfully";
     }
 }

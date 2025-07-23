@@ -30,7 +30,7 @@ public class TaskController {
         return service.getTaskByName(name);
     }
     @PutMapping()
-    public TaskDetails UpdateTask(@RequestBody TaskDetails taskdetails)
+    public TaskDetails UpdateTask(@RequestBody @Valid TaskDetails taskdetails)
     {
         return service.UpdateTask(taskdetails);
     }
