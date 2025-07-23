@@ -1,4 +1,4 @@
-package com.Project.TaskManager.DTO;
+package com.Project.TaskManager.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -8,7 +8,8 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name="TO-DOO APPLICATION")
+@Table(name="TaskDetails")
+
 public class TaskDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +21,10 @@ public class TaskDetails {
     @Future
     private LocalDate DueDate;
     private boolean TaskStatus;
-    @Email
-    private String email;
     private String Priority;
+    @ManyToOne
+    @JoinColumn(name="userid")
+    private users user;
 
     public int getTaskId() {
         return TaskId;
@@ -64,19 +66,19 @@ public class TaskDetails {
         TaskStatus = taskStatus;
     }
 
-    public @Email String getEmail() {
-        return email;
-    }
-
-    public void setEmail(@Email String email) {
-        this.email = email;
-    }
-
     public String getPriority() {
         return Priority;
     }
 
     public void setPriority(String priority) {
         Priority = priority;
+    }
+
+    public users getUser() {
+        return user;
+    }
+
+    public void setUser(users user) {
+        this.user = user;
     }
 }

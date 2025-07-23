@@ -1,7 +1,6 @@
 package com.Project.TaskManager.Controller;
 
-import com.Project.TaskManager.DTO.TaskDetails;
-import com.Project.TaskManager.Service.EmailService;
+import com.Project.TaskManager.Entity.TaskDetails;
 import com.Project.TaskManager.Service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ import java.util.Optional;
 public class TaskController {
     @Autowired
     private TaskService service;
-    @Autowired
-    private EmailService ser;
     @GetMapping
     public List<TaskDetails> getTasks()
     {
@@ -33,7 +30,7 @@ public class TaskController {
         return service.getTaskByName(name);
     }
     @PutMapping()
-    public TaskDetails UpdateTask(@RequestBody TaskDetails taskdetails)
+    public TaskDetails UpdateTask(@RequestBody @Valid TaskDetails taskdetails)
     {
         return service.UpdateTask(taskdetails);
     }
@@ -41,14 +38,5 @@ public class TaskController {
     public String deleteTaskByName(@PathVariable int TaskId) {
         return service.deleteTaskByName(TaskId);
     }
-//    @PostMapping("/{send-email}")
-//    public String sendemail(@RequestBody taskremainder remainder)
-//    {
-//        ser.sendemail(remainder);
-//        return "mail sent sucesfully";
-//    }
-
-
-
 
 }
