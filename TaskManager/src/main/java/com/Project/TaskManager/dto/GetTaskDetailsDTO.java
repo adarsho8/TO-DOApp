@@ -1,44 +1,26 @@
-package com.Project.TaskManager.Entity;
+package com.Project.TaskManager.dto;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 
+
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
-
-
-@Entity
-@Table(name="TaskDetails")
-
-public class TaskDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int TaskId;
-    @NotBlank(message="TaskName should not be blank")
-    @Column(name="TaskName")
+public class GetTaskDetailsDTO {
+    @NotBlank(message = "Taskname should not be blanck")
     private String name;
     private String Description;
     @Future
     private LocalDate DueDate;
     private boolean TaskStatus;
     private String Priority;
-    @ManyToOne
-    @JoinColumn(name="userid")
-    private users user;
+    private int taskId;
 
-    public int getTaskId() {
-        return TaskId;
-    }
-
-    public void setTaskId(int taskId) {
-        TaskId = taskId;
-    }
-
-    public @NotBlank(message = "TaskName should not be blank") String getName() {
+    public @NotBlank(message = "Taskname should not be blanck") String getName() {
         return name;
     }
 
-    public void setName(@NotBlank(message = "TaskName should not be blank") String name) {
+    public void setName(@NotBlank(message = "Taskname should not be blanck") String name) {
         this.name = name;
     }
 
@@ -74,11 +56,11 @@ public class TaskDetails {
         Priority = priority;
     }
 
-    public users getUser() {
-        return user;
+    public int getTaskId() {
+        return taskId;
     }
 
-    public void setUser(users user) {
-        this.user = user;
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 }

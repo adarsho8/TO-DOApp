@@ -1,6 +1,6 @@
-package com.Project.TaskManager.Repo;
+package com.Project.TaskManager.repository;
 
-import com.Project.TaskManager.Entity.users;
+import com.Project.TaskManager.model.users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface usersrepo extends JpaRepository<users,Integer> {

@@ -1,7 +1,7 @@
-package com.Project.TaskManager.Controller;
+package com.Project.TaskManager.controller;
 
-import com.Project.TaskManager.Entity.users;
-import com.Project.TaskManager.Service.userService;
+import com.Project.TaskManager.model.users;
+import com.Project.TaskManager.service.userService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

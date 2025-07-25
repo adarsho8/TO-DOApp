@@ -1,8 +1,7 @@
-package com.Project.TaskManager.Service;
+package com.Project.TaskManager.service;
 
-import com.Project.TaskManager.Entity.users;
-import com.Project.TaskManager.Repo.usersrepo;
-import jakarta.validation.Valid;
+import com.Project.TaskManager.model.users;
+import com.Project.TaskManager.repository.usersrepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

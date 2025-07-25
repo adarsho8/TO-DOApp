@@ -1,4 +1,4 @@
-package com.Project.TaskManager.Exceptions;
+package com.Project.TaskManager.exceptions;
 
 public class BadRequestException extends RuntimeException{
     public BadRequestException(String message)

@@ -1,13 +1,13 @@
-package com.Project.TaskManager.Controller;
+package com.Project.TaskManager.controller;
 
-import com.Project.TaskManager.Entity.TaskDetails;
-import com.Project.TaskManager.Service.TaskService;
+import com.Project.TaskManager.dto.GetTaskDetailsDTO;
+import com.Project.TaskManager.model.TaskDetails;
+import com.Project.TaskManager.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/TO-DOAPP")
@@ -15,9 +15,9 @@ public class TaskController {
     @Autowired
     private TaskService service;
     @GetMapping
-    public List<TaskDetails> getTasks()
+    public List<GetTaskDetailsDTO> getTasks()
     {
-        return service.getTasks();
+        return service.getTaskDetailsDTO();
     }
     @PostMapping
     public TaskDetails createTask(@Valid @RequestBody TaskDetails taskdetails)
@@ -25,9 +25,9 @@ public class TaskController {
         return service.createTask(taskdetails);
     }
     @GetMapping("/{name}")
-    public Optional<TaskDetails> getTaskByName(@PathVariable String name)
+    public List<GetTaskDetailsDTO> getTaskByName(@PathVariable String name)
     {
-        return service.getTaskByName(name);
+        return service.getTaskDetailsDTObyName(name);
     }
     @PutMapping()
     public TaskDetails UpdateTask(@RequestBody @Valid TaskDetails taskdetails)

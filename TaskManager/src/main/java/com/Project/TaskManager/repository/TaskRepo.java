@@ -1,6 +1,6 @@
-package com.Project.TaskManager.Repo;
+package com.Project.TaskManager.repository;
 
-import com.Project.TaskManager.Entity.TaskDetails;
+import com.Project.TaskManager.model.TaskDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
