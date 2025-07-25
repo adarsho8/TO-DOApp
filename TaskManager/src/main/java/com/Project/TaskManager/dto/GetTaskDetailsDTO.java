@@ -2,6 +2,9 @@ package com.Project.TaskManager.dto;
 
 
 
+import com.Project.TaskManager.enums.Priority;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 
@@ -13,7 +16,8 @@ public class GetTaskDetailsDTO {
     @Future
     private LocalDate DueDate;
     private boolean TaskStatus;
-    private String Priority;
+    @Enumerated(EnumType.STRING)
+    private Priority Priority;
     private int taskId;
 
     public @NotBlank(message = "Taskname should not be blanck") String getName() {
@@ -48,19 +52,19 @@ public class GetTaskDetailsDTO {
         TaskStatus = taskStatus;
     }
 
-    public String getPriority() {
-        return Priority;
-    }
-
-    public void setPriority(String priority) {
-        Priority = priority;
-    }
-
     public int getTaskId() {
         return taskId;
     }
 
     public void setTaskId(int taskId) {
         this.taskId = taskId;
+    }
+
+    public com.Project.TaskManager.enums.Priority getPriority() {
+        return Priority;
+    }
+
+    public void setPriority(com.Project.TaskManager.enums.Priority priority) {
+        Priority = priority;
     }
 }

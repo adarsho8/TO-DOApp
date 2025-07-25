@@ -5,6 +5,7 @@ import com.Project.TaskManager.exceptions.BadRequestException;
 import com.Project.TaskManager.exceptions.ResourceNotFoundException;
 import com.Project.TaskManager.model.TaskDetails;
 import com.Project.TaskManager.repository.TaskRepo;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,10 @@ import java.util.stream.Collectors;
 public class TaskService {
     @Autowired
     private TaskRepo repo;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
     public TaskDetails createTask(TaskDetails taskdetails)
     {
         if(taskdetails.getName()==null || taskdetails.getName().isBlank())
@@ -37,19 +42,13 @@ public class TaskService {
 
     }
 
-    public List<GetTaskDetailsDTO> getTaskDetailsDTO()
-    {
-        return repo.findAll().stream().map(task->{
-            GetTaskDetailsDTO response=new GetTaskDetailsDTO();
-            response.setName(task.getName());
-            response.setDescription(task.getDescription());
-            response.setTaskStatus(task.isTaskStatus());
-            response.setPriority(task.getPriority());
-            response.setDueDate(task.getDueDate());
-            response.setTaskId(task.getTaskId());
-            return response;
-        }).collect(Collectors.toList());
-    }
+
+    public List<GetTaskDetailsDTO> getTaskDetailsDTO() {
+        return repo.findAll().stream()
+            .map(task -> modelMapper.map(task, GetTaskDetailsDTO.class))
+            .collect(Collectors.toList());
+}
+
 
     public List<GetTaskDetailsDTO> getTaskDetailsDTObyName(String name)
     {

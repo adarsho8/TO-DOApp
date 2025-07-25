@@ -1,5 +1,6 @@
 package com.Project.TaskManager.model;
 
+import com.Project.TaskManager.enums.Priority;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -18,7 +19,7 @@ public class TaskDetails {
     private String Description;
     private LocalDate DueDate;
     private boolean TaskStatus;
-    private String Priority;
+    private  Priority Priority;
     @ManyToOne
     @JoinColumn(name="userid")
     private users user;
@@ -63,11 +64,11 @@ public class TaskDetails {
         TaskStatus = taskStatus;
     }
 
-    public String getPriority() {
+    public com.Project.TaskManager.enums.Priority getPriority() {
         return Priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(com.Project.TaskManager.enums.Priority priority) {
         Priority = priority;
     }
 
